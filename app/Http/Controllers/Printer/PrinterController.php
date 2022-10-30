@@ -20,16 +20,14 @@ class PrinterController extends BaseController
      */
     public function custom(Request $request)
     {
-        $content = '家长课下课了！';
-        $content = '<CB>测试打印</CB><BR>';
-        $content .= '名称　　　　　 单价  数量 金额<BR>';
-        $content .= '--------------------------------<BR>';
-        $content .= '饭　　　　　 　10.0   10  100.0<BR>';
-        $content .= '炒饭　　　　　 10.0   10  100.0<BR>';
-        $content .= '蛋炒饭　　　　 10.0   10  100.0<BR>';
-        $content .= '鸡蛋炒饭　　　 10.0   10  100.0<BR>';
-        $content .= '西红柿炒饭　　 10.0   10  100.0<BR>';
-        $response = (new PrinterService())->printMsg($content);
+        $title = $request->post('title');
+        $content = $request->post('content');
+        if (empty($content)){
+            $this->showMessage(false, 201, '请填写要打印的内容');
+        }
+        $msg = isset($title) ? "<CB>{$title}</CB><BR>" : '';
+        $msg .= $content;
+        $response = (new PrinterService())->printMsg($msg);
 //        $response = (new PrinterService())->queryPrinterStatus();
         return $this->showMessage($response);
     }

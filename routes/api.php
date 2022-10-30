@@ -19,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 Route::post('/store/vote', 'Lottery\IndexController@store');
+
+Route::get('/printer/test', 'Printer\PrinterController@custom');
+Route::get('/printer/status', 'Printer\PrinterController@printerStatus');

@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::post('/store/vote', 'Lottery\IndexController@store');
 
-Route::get('/printer/test', 'Printer\PrinterController@custom');
-Route::get('/printer/status', 'Printer\PrinterController@printerStatus');
+Route::post('/printer/print', 'Printer\PrinterController@print');
+Route::post('/printer/status', 'Printer\PrinterController@printerStatus');
+Route::post('/printer/printerGradeThreePoem', 'Printer\PrinterController@printerGradeThreePoem');

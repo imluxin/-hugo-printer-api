@@ -57,11 +57,11 @@ class PrinterController extends BaseController
      * @date 2022/11/4 20:52
      * @version 1.0
      */
-    public function printerGradeThreePoem(Request $request)
+    public function printerCategory(Request $request)
     {
         $code = $request->post('code');
         $printerCategory = $request->post('printerCategory');
-        $serverCode = date('md'); //Carbon::now()->format('md');
+        $serverCode = Carbon::now()->format('md');
         if ($code != $serverCode) {
             return $this->showMessage($serverCode, 201, 'code错误，请重试。');
         }
@@ -71,6 +71,9 @@ class PrinterController extends BaseController
                 break;
             case 2:
                 $content = PrinterService::__cateOneCupOfWater();
+                break;
+            case 3:
+                $content = PrinterService::__cateTakeAwayMyCup();
                 break;
         }
 

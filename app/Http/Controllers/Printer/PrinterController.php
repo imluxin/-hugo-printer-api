@@ -69,6 +69,9 @@ class PrinterController extends BaseController
             case 1:
                 $content = PrinterService::__gradeThreePoem();
                 break;
+            case 2:
+                $content = PrinterService::__cateOneCupOfWater();
+                break;
         }
 
         $response = (new PrinterService())->printMsg($content);

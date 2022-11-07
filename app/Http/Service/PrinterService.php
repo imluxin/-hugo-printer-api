@@ -110,6 +110,25 @@ class PrinterService
     }
 
     /**
+     * @return string
+     * @throws \Exception
+     * @author p_luxinyao
+     * @date 2022/11/5 20:23
+     * @version 1.0
+     */
+    public static function __cateOneCupOfWater()
+    {
+        $contentArr[1] = '真诚祝福传递你，愿你开心永如意，生日快乐歌一曲，愿你幸福没问题，每年这天祝福你，望你健康又美丽，幸运永远追随你！';
+        $contentArr[2] = '洪亮的钟声荡气回荡，璀璨的烟花美丽绽放，潺潺的溪水叮咚回生日的歌曲为你歌唱。人生路上平安吉祥，好运永远伴你身旁！';
+        $contentArr[3] = '愿每一刻都有快乐与你相伴，愿每一天都有美好与你相随，愿你的心愿都能实现，愿你的生活色彩斑斓！';
+
+        $content = '<CB>请来一杯水</CB><BR>';
+        $content .= '<C>----------------<BR><BR>';
+        $content .= "{$contentArr[random_int(1,3)]}<BR>";
+        return $content;
+    }
+
+    /**
      * 打印内容-三年级诗歌
      * @return string
      * @author imluxin

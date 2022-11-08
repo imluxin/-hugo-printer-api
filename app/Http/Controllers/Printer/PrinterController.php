@@ -6,8 +6,8 @@ use App\Http\Controllers\BaseController;
 use App\Http\Service\PrinterService;
 use App\Models\PrintMessage;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use PHPUnit\Util\Printer;
 
 class PrinterController extends BaseController
 {
@@ -28,11 +28,11 @@ class PrinterController extends BaseController
             return $this->showMessage($serverCode, 201, 'code错误，请重试。');
         }
         $title = $request->post('title');
-        $content = $request->post('content');
-        if (empty($content) || empty($title)) {
-            return $this->showMessage(false, 201, '请填写标题和打印内容');
+        $content = $request->post('content', '');
+        if (empty($title)) {
+            return $this->showMessage(false, 201, '请填写标题');
         }
-        $msg = isset($title) ? "<CB>{$title}</CB><BR>" : '';
+        $msg = "<CB>{$title}</CB><BR>";
         $msg .= $content;
         $response = (new PrinterService())->printMsg($msg);
         return $this->showMessage($response, 200, '打印成功，快去打印机看看吧。');
@@ -54,17 +54,26 @@ class PrinterController extends BaseController
     /**
      * 获取预设消息列表
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      * @author p_luxinyao
      * @date 2022/11/8 22:59
      * @version 2.8.0
      */
-    public function listCategory(Request $request)
+    public function listCategory(Request $request): JsonResponse
     {
         $array = [
-            PrintMessage::CATEGORY_GRADE_THREE_POEM => '三年级诗词',
-            PrintMessage::CATEGORY_A_CUP_WATER => '请给我来一杯水',
-            PrintMessage::CATEGORY_TAKE_AWAY_CUP => '请帮我拿走水杯',
+            [
+                'text' => '三年级诗词',
+                'value' => PrintMessage::CATEGORY_GRADE_THREE_POEM
+            ],
+            [
+                'text' => '请给我来一杯水',
+                'value' => PrintMessage::CATEGORY_A_CUP_WATER
+            ],
+            [
+                'text' => '请帮我拿走水杯',
+                'value' => PrintMessage::CATEGORY_TAKE_AWAY_CUP
+            ]
         ];
         return response()->json($array);
     }

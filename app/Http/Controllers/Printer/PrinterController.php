@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Printer;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Service\PrinterService;
+use App\Models\PrintMessage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PHPUnit\Util\Printer;
@@ -51,6 +52,24 @@ class PrinterController extends BaseController
     }
 
     /**
+     * 获取预设消息列表
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @author p_luxinyao
+     * @date 2022/11/8 22:59
+     * @version 2.8.0
+     */
+    public function listCategory(Request $request)
+    {
+        $array = [
+            PrintMessage::CATEGORY_GRADE_THREE_POEM => '三年级诗词',
+            PrintMessage::CATEGORY_A_CUP_WATER => '请给我来一杯水',
+            PrintMessage::CATEGORY_TAKE_AWAY_CUP => '请帮我拿走水杯',
+        ];
+        return response()->json($array);
+    }
+
+    /**
      * 打印三年级唐诗
      * @return mixed
      * @author imluxin
@@ -66,13 +85,13 @@ class PrinterController extends BaseController
             return $this->showMessage($serverCode, 201, 'code错误，请重试。');
         }
         switch ($printerCategory) {
-            case 1:
+            case PrintMessage::CATEGORY_GRADE_THREE_POEM:
                 $content = PrinterService::__gradeThreePoem();
                 break;
-            case 2:
+            case PrintMessage::CATEGORY_A_CUP_WATER:
                 $content = PrinterService::__cateOneCupOfWater();
                 break;
-            case 3:
+            case PrintMessage::CATEGORY_TAKE_AWAY_CUP:
                 $content = PrinterService::__cateTakeAwayMyCup();
                 break;
         }

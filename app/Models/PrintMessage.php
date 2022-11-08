@@ -13,6 +13,10 @@ class PrintMessage extends Model
     protected $table = 'fc_vote_result';
     protected $guarded = [];
 
+    public const CATEGORY_GRADE_THREE_POEM = 1;
+    public const CATEGORY_A_CUP_WATER = 2;
+    public const CATEGORY_TAKE_AWAY_CUP = 3;
+
     public const SENTENCE_1 = '真诚祝福传递你，愿你开心永如意，生日快乐歌一曲，愿你幸福没问题，每年这天祝福你，望你健康又美丽，幸运永远追随你！';
     public const SENTENCE_2 = '洪亮的钟声荡气回荡，璀璨的烟花美丽绽放，潺潺的溪水叮咚回生日的歌曲为你歌唱。人生路上平安吉祥，好运永远伴你身旁！';
     public const SENTENCE_3 = '愿每一刻都有快乐与你相伴，愿每一天都有美好与你相随，愿你的心愿都能实现，愿你的生活色彩斑斓！';

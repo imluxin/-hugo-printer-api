@@ -22,4 +22,5 @@ Route::post('/store/vote', 'Lottery\IndexController@store');
 
 Route::post('/printer/print', 'Printer\PrinterController@print');
 Route::post('/printer/status', 'Printer\PrinterController@printerStatus');
+Route::get('/printer/listCategory', 'Printer\PrinterController@listCategory');
 Route::post('/printer/printerCategory', 'Printer\PrinterController@printerCategory');

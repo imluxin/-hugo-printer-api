@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 
 class PrinterController extends BaseController
 {
-    public const SURVEY_ID = 10954300; // 问卷ID
-
     /**
      * @param Request $request
      * @return void

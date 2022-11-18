@@ -71,6 +71,14 @@ class PrinterController extends BaseController
             [
                 'text' => '请帮我拿走水杯',
                 'value' => PrintMessage::CATEGORY_TAKE_AWAY_CUP
+            ],
+            [
+                'text' => '2022世界杯小组赛赛程',
+                'value' => PrintMessage::CATEGORY_WORLD_CUP_2022
+            ],
+            [
+                'text' => '2022世界杯小组赛焦点战',
+                'value' => PrintMessage::CATEGORY_WORLD_CUP_2022_FOCUS
             ]
         ];
         return response()->json($array);
@@ -78,7 +86,6 @@ class PrinterController extends BaseController
 
     /**
      * 打印三年级唐诗
-     * @return mixed
      * @author imluxin
      * @date 2022/11/4 20:52
      * @version 1.0
@@ -100,6 +107,12 @@ class PrinterController extends BaseController
                 break;
             case PrintMessage::CATEGORY_TAKE_AWAY_CUP:
                 $content = PrinterService::__cateTakeAwayMyCup();
+                break;
+            case PrintMessage::CATEGORY_WORLD_CUP_2022:
+                $content = PrintMessage::worldCup2022();
+                break;
+            case PrintMessage::CATEGORY_WORLD_CUP_2022_FOCUS:
+                $content = PrintMessage::worldCup2022Focus();
                 break;
         }
 

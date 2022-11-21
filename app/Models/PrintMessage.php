@@ -45,7 +45,7 @@ class PrintMessage extends Model
 
 A组赛程：
 
-11月21日0点，卡塔尔vs/厄瓜多尔
+11月21日0点，卡塔尔vs厄瓜多尔
 
 11月22日0点，塞内加尔vs荷兰
 

@@ -153,7 +153,7 @@ class PrinterService
      */
     public static function __gradeThreePoem(): string
     {
-        $content = '<CB>雨果秘籍</CB><BR>';
+        $content = '<CB>三年级古诗词</CB><BR>';
         $content .= '<C>----------------<BR><BR>';
         $content .= '山行<BR>';
         $content .= '杜牧 〔唐代〕<BR>';

@@ -100,13 +100,13 @@ class PrinterController extends BaseController
         }
         switch ($printerCategory) {
             case PrintMessage::CATEGORY_GRADE_THREE_POEM:
-                $content = PrinterService::__gradeThreePoem();
+                $content = PrintMessage::__gradeThreePoem();
                 break;
             case PrintMessage::CATEGORY_A_CUP_WATER:
-                $content = PrinterService::__cateOneCupOfWater();
+                $content = PrintMessage::__cateOneCupOfWater();
                 break;
             case PrintMessage::CATEGORY_TAKE_AWAY_CUP:
-                $content = PrinterService::__cateTakeAwayMyCup();
+                $content = PrintMessage::__cateTakeAwayMyCup();
                 break;
             case PrintMessage::CATEGORY_WORLD_CUP_2022:
                 $content = PrintMessage::worldCup2022();

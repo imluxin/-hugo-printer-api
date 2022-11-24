@@ -18,6 +18,7 @@ class PrintMessage extends Model
     public const CATEGORY_TAKE_AWAY_CUP = 3;
     public const CATEGORY_WORLD_CUP_2022 = 4;
     public const CATEGORY_WORLD_CUP_2022_FOCUS = 5;
+    public const CATEGORY_SCHEDULE_GRADE_THREE = 6;
 
     public const SENTENCE_1 = '真诚祝福传递你，愿你开心永如意，生日快乐歌一曲，愿你幸福没问题，每年这天祝福你，望你健康又美丽，幸运永远追随你！';
     public const SENTENCE_2 = '洪亮的钟声荡气回荡，璀璨的烟花美丽绽放，潺潺的溪水叮咚回生日的歌曲为你歌唱。人生路上平安吉祥，好运永远伴你身旁！';
@@ -316,5 +317,54 @@ H组：
         $content .= '闻歌始觉有人来。<BR>';
         $content .= '----------------</C><BR><BR>';
         return $content;
+    }
+
+
+    public static function scheduleForGradeThree(): string
+    {
+        return "
+        <CB>三年级课表</CB>
+<B>星期一</B>
+1.班会
+2.语文
+3.外语
+4.体育
+5.语文
+6.科学
+7.综合实践活动
+----------------<BR>
+<B>星期二</B>
+1.数学
+2.语文
+3.音乐
+4.书法
+5.道德与法治
+6.体育
+----------------<BR>
+<B>星期三</B>
+1.数学
+2.美术
+3.语文
+4.体育
+5.音乐
+6.校本心理
+----------------<BR>
+<B>星期四</B>
+1.外语
+2.数学
+3.语文
+4.信息科技
+5.美术
+6.劳动
+----------------<BR>
+<B>星期五</B>
+1.数学
+2.外语
+3.语文
+4.道德与法治
+5.科学
+6.地方课程
+<CB>-------</CB>
+        ";
     }
 }

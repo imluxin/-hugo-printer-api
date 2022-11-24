@@ -79,6 +79,10 @@ class PrinterController extends BaseController
             [
                 'text' => '2022世界杯小组赛焦点战',
                 'value' => PrintMessage::CATEGORY_WORLD_CUP_2022_FOCUS
+            ],
+            [
+                'text' => '三年级课程表',
+                'value' => PrintMessage::CATEGORY_SCHEDULE_GRADE_THREE
             ]
         ];
         return response()->json($array);
@@ -113,6 +117,9 @@ class PrinterController extends BaseController
                 break;
             case PrintMessage::CATEGORY_WORLD_CUP_2022_FOCUS:
                 $content = PrintMessage::worldCup2022Focus();
+                break;
+            case PrintMessage::CATEGORY_SCHEDULE_GRADE_THREE:
+                $content = PrintMessage::scheduleForGradeThree();
                 break;
         }
 
